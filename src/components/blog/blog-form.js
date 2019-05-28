@@ -64,7 +64,7 @@ export default class BlogForm extends Component {
       [event.target.name]: event.target.value
     });
   }
-
+  
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="blog-form-wrapper">
