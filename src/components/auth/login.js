@@ -36,17 +36,19 @@ export default class Login extends Component {
       )
       .then(response => {
         if (response.data.status === "created") {
-          console.log("You can come in...");
+          this.props.handleSuccessfulAuth();
         } else {
           this.setState({
             errorText: "Wrong email or password"
           });
+          this.props.handleUnsuccessfulAuth();
         }
       })
       .catch(error => {
         this.setState({
           errorText: "An error occurred"
         });
+        this.props.handleUnsuccessfulAuth();
       });
 
     event.preventDefault();
@@ -55,7 +57,7 @@ export default class Login extends Component {
   render() {
     return (
       <div>
-        <h1 >LOGIN TO ACCESS YOUR DASHBOARD</h1>
+        <h1>LOGIN TO ACCESS YOUR DASHBOARD</h1>
 
         <div>{this.state.errorText}</div>
 
@@ -63,7 +65,7 @@ export default class Login extends Component {
           <input
             type="email"
             name="email"
-            placeholder="YOUR EMAIL"
+            placeholder="Your email"
             value={this.state.email}
             onChange={this.handleChange}
           />
@@ -71,13 +73,13 @@ export default class Login extends Component {
           <input
             type="password"
             name="password"
-            placeholder="YOUR PASSWORD"
+            placeholder="Your password"
             value={this.state.password}
             onChange={this.handleChange}
           />
 
           <div>
-            <button type="submit">LOGIN</button>
+            <button type="submit">Login</button>
           </div>
         </form>
       </div>
