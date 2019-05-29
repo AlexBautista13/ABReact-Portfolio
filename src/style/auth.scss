@@ -1,17 +1,33 @@
 .auth-page-wrapper {
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    height: calc(100vh - 84px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: calc(100vh - 84px);
 
+  .left-column {
+    background-size: cover;
+  }
 
-    .left-column {
-        background-size: cover;
-    }
+  .right-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $offwhite;
 
-    .right-column {
+    .auth-form-wrapper {
+      @include input-element();
+      @include base-grid();
+      grid-gap: 21px;
+      padding: 42px;
+
+      .form-group {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: $offwhite;
+
+        svg {
+          font-size: 2em;
+          color: #8a8a8a;
+          margin-right: 15px;
+        }
+      }
     }
+  }
 }

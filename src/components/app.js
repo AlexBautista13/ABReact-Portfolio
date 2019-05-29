@@ -97,7 +97,7 @@ export default class App extends Component {
               handleSuccessfulLogout={this.handleSuccessfulLogout}
             />
 
-            <Switch>
+<Switch>
               <Route exact path="/" component={Home} />
 
               <Route
@@ -111,7 +111,7 @@ export default class App extends Component {
                 )}
               />
 
-<Route path="/about-me" component={About} />
+              <Route path="/about-me" component={About} />
               <Route path="/contact" component={Contact} />
 
               <Route
